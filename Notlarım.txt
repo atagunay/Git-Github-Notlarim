@@ -31,8 +31,8 @@ Yapılan Değişiklikleri Almak
 ------------------------------------------------------------
 git pull origin [branch ismi] : ismi belirtilen branchin son halini bulunulan branche getirir.
 git fetch origin [branch ismi] : ismi belirtilen branchin son haline gidersiniz. 
-					   Dosyalarınız değişmez. HEAD kopar. Gittiğiniz yerden geri gelebilir
-					   veya yeni bir branch açarak değişiklikleri saklayabilirsiniz.
+				 Dosyalarınız değişmez. HEAD kopar. Gittiğiniz yerden geri gelebilir
+			         veya yeni bir branch açarak değişiklikleri saklayabilirsiniz.
 
 
 GIT Log
@@ -99,7 +99,7 @@ NOT: [commit id], git log ile öğrenilir.
 Farkları Görme
 ---------------------------------------------------------
 git diff : güncel olarak yaptığın değişikliklerin son commiten farklarını gösterir. 
-	     git add . yapılmadan kullanılır.
+	   git add . yapılmadan kullanılır.
 
 git diff HEAD : son commite göre neler değiştir. git add . yapıldıktan sonra kullanılabilir.
 git diff [commit id] [commit id] : iki commit arasındaki farkları gösterir
