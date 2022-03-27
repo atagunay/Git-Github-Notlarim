@@ -1,0 +1,122 @@
+GIT Başlatma
+------------------------------------------------------------
+git status : İçinde bulunulan klasörde gitin kurulu olup olmadığını kontrol eder
+git init : İçinde bulunulan klasörde giti başlatır
+
+Başka Bir Projeyi Almak (Clone)
+------------------------------------------------------------
+Yapılan değişiklikler, commitler orjinal repositoriye gider.
+git clone [proje url]
+
+
+Başka Bir Projeyi Almak (Fork - Çatal) (Yolları Ayırmak)
+------------------------------------------------------------
+Yapılan değişiklikler, commitler hesabında oluşturulan klone repositoriye gider.
+Github sitesindeki fork butonuna basılarak yapılır.
+
+
+GIT Add & Commit
+------------------------------------------------------------
+git add . : yapılan bütün değişiklikleri kaydeder
+git add [dosya adı] : ismi yazılan dosya indexlenir
+git commit -m "message" : commit yapılır
+
+
+GIT Push
+------------------------------------------------------------
+git push origin [branch ismi] : belirtilen branchi pushlar
+
+
+Yapılan Değişiklikleri Almak
+------------------------------------------------------------
+git pull origin [branch ismi] : ismi belirtilen branchin son halini bulunulan branche getirir.
+git fetch origin [branch ismi] : ismi belirtilen branchin son haline gidersiniz. 
+					   Dosyalarınız değişmez. HEAD kopar. Gittiğiniz yerden geri gelebilir
+					   veya yeni bir branch açarak değişiklikleri saklayabilirsiniz.
+
+
+GIT Log
+-----------------------------------------------------------
+git log : commit kayıtlarını gösterir
+git status : İçinde bulunulan klasördeki durumu aktarır
+
+
+HEAD Nedir?
+----------------------------------------------------------
+Güncel commiti temsil eder.
+Her commit atıldıdığında HEAD yer değiştirir.
+
+Detached HEAD Nedir?
+----------------------------------------------------------
+chekout ile bir önceki commite geri dönüldüğünde HEAD geçilen commiti işaret eder
+fakat master projenin en son commitini göstermektedir. Master ile HEAD' in farklı 
+commitlerde olması Detached HEAD olarak adlandırılır.
+
+git switch master yapılarak Reattached Head durumu ortadan kaldırılabilir.
+
+
+Branch İşlemleri
+----------------------------------------------------------
+git branch [branch ismi] : branch oluşturma
+git branch : localde bulunan mevcut branchleri listeler
+git branch -r : tüm branchleri listeler (global ve local)
+git switch [branch ismi] : ismi yazılan branche geçiş yapar
+git merge [branch ismi] : ismi yazılan branchi master ile birleştirir. Merge commit oluşturur.
+git checkout [branch ismi] : ismi yazılan remote branche geçer				  
+
+
+Fast Forwarding Nedir?
+----------------------------------------------------------
+Branchte kodlar yazılırken masterda hiç bir değişiklik yapılmadıysa ve 
+branch bittikten sonra mastere merge edildiyse bu fast forwardşng yani
+iler sarma oluyor. Bu işlem sırasında commit oluşturulmaz. Proje ileri sarılır.
+
+Stash Nedir?
+----------------------------------------------------------
+Farklı bir branchte bir değişiklik yaptığımız zaman onu commitlesek de commitlemesek de mastera geçtiğimizde
+yaptığımız değişiklikler bizimle beraber gelir ve karışıklığa yol açabilir. Bu yüzden mastera geçmeden
+yapılan değişiklikler commit atmak yerine "git stash" ile belleğe kaydedilir. Masterda işimiz bittikten sonra 
+branchimize geri döndüğümüzde "git pop" yaparak kaldığımız yerden devam edebiliriz. Merge conflictleri düzeltmek için
+önce merge yapılır daha sonra stash pop yapılır ve hangilerinin kalacağı seçilir.
+
+git stash : branchte yapılan değişiklikleri ön belleğe kaydeder
+git pop : stash ile kayıt edilen değişiklikler yüklenir
+git stash list : belleğe alınan değişiklikleri listeler
+git stash clear : belleğe alınan tüm değişiklikleri siler
+
+
+Geri Dönüş İşlemleri
+----------------------------------------------------------
+git restore [dosya ismi] : belirtilen dosyayı son commite döndürür
+git checkout [commit id] : belirtilen commite geri dönüş yapar genellikle bir göz atmak için kullanılır.
+git reset [commit id] : belirtilen commite geri dönerken önceki commitler silinir, değişiklikler tutulur.
+git reset --hard [commit id] : belirtilen commite geri dönerken önceki commitler ve değişiklikler silinir.
+git revert [commit id] : belirtilen committeki haline yeni bir commit oluşturarak geri döner.
+
+NOT: [commit id], git log ile öğrenilir.
+
+
+Farkları Görme
+---------------------------------------------------------
+git diff : güncel olarak yaptığın değişikliklerin son commiten farklarını gösterir. 
+	     git add . yapılmadan kullanılır.
+
+git diff HEAD : son commite göre neler değiştir. git add . yapıldıktan sonra kullanılabilir.
+git diff [commit id] [commit id] : iki commit arasındaki farkları gösterir
+
+
+Rebase Nedir?
+---------------------------------------------------------
+Eğer commitler başka kişiler ile paylaşıldıysa rebase KULLANILMAMALIDIR !
+
+Biz bir branchte çalışırken mastera bir güncelleme gelebilir ve bu güncellemeyi biz kendi branchimize almak 
+için merge yaparız. Fakat bu işlemler yeni commitler ve yeni loglar üretir. Rebase yani tarih sıralaması ile
+masterda yapılan değişiklikler arka arkaya sıralanır sonra branchimize merge edilerek branchmizde yaptığımız
+değişiklikler sıralanır.
+
+branche geçilir ve "git rebase master" komutu yazılır.
+
+
+
+
+
