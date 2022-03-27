@@ -115,8 +115,3 @@ masterda yapılan değişiklikler arka arkaya sıralanır sonra branchimize merg
 değişiklikler sıralanır.
 
 branche geçilir ve "git rebase master" komutu yazılır.
-
-
-
-
-
