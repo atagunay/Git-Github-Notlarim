@@ -62,7 +62,9 @@ git branch : localde bulunan mevcut branchleri listeler
 git branch -r : tüm branchleri listeler (global ve local)
 git switch [branch ismi] : ismi yazılan branche geçiş yapar
 git merge [branch ismi] : ismi yazılan branchi master ile birleştirir. Merge commit oluşturur.
-git checkout [branch ismi] : ismi yazılan remote branche geçer				  
+git checkout [branch ismi] : ismi yazılan remote branche geçer		
+git branch -d [branch ismi] : ismi yazılan branchi siler
+git branch -D [branch ismi] : eğer branchte merge edilmemiş değişiklikler varsa branchi silmek için bu komut kullanılır.
 
 
 Fast Forwarding Nedir?
